@@ -1,0 +1,244 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, #f9d0ea 0%, #c4f1f9 100%);
+  margin: 0;
+  padding: 0;
+}
+
+.diary-container {
+  max-width: 600px;
+  background: #fff;
+  margin: 40px auto;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+/* Back Button */
+#back-btn {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background: #efb4c8;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.9em;
+  cursor: pointer;
+  display: none; /* hidden by default */
+}
+#back-btn:hover {
+  background: #d986b4;
+}
+
+.diary-header {
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative; /* allow back button absolute inside */
+}
+
+.diary-icon svg {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  background: #f8bbd0;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.diary-header h1 {
+  font-size: 2.4em;
+  color: #7866d0;
+  margin: 0;
+}
+
+.subtitle {
+  color: #b39ddb;
+  margin-top: 4px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.tabs button,
+.tabs a button {
+  background: #efb4c8;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 16px;
+  font-size: 1em;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.tabs button:hover,
+.tabs a button:hover {
+  background: #d986b4;
+}
+
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* Inner Tabs for Past Entries */
+.inner-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.inner-tab {
+  background: #ede7f6;
+  color: #5e35b1;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px 12px 0 0;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+  outline: none;
+}
+
+.inner-tab.active {
+  background: #b39ddb;
+  color: #fff;
+  font-weight: bold;
+}
+
+.inner-tab-content {
+  display: none;
+  background: #faf7fc;
+  border-radius: 0 0 14px 14px;
+  padding: 15px;
+}
+.inner-tab-content.active {
+  display: block;
+}
+
+/* Filters styling */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filters input[type="date"],
+.filters input[type="text"] {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #dedede;
+  outline: none;
+}
+
+#entries-list,
+#partners-entries-list {
+  min-height: 100px;
+  background: #fff4fb;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 12px rgba(239, 180, 200, 0.10);
+}
+
+/* Textareas and buttons */
+textarea {
+  width: 100%;
+  min-height: 80px;
+  border: 1px solid #fbc2eb;
+  border-radius: 9px;
+  margin-bottom: 12px;
+  padding: 7px;
+  font-size: 1.1em;
+  background: #fff6fb;
+  resize: vertical;
+  transition: border 0.2s;
+}
+
+textarea:focus {
+  border: 1.5px solid #ffb4e6;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+}
+
+.button-row button {
+  background: #b39ddb;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.button-row button:hover {
+  background: #8e24aa;
+}
+
+/* Partner box */
+#partnerBox {
+  margin-top: 18px;
+  background: #eee5f7;
+  padding: 12px 16px;
+  border-radius: 10px;
+}
+
+#partnerBox h3 {
+  color: #8e24aa;
+  margin-top: 0;
+}
+
+#partnerBox input[type="text"] {
+  width: 70%;
+  margin-bottom: 7px;
+  border-radius: 7px;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  font-size: 1em;
+}
+
+/* ✅ Link Partner button styled same as Save Diary */
+#partnerBox button {
+  background: #b39ddb;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#partnerBox button:hover {
+  background: #8e24aa;
+}
+
+/* Responsive tweaks */
+@media (max-width: 596px) {
+  .diary-container {
+    padding: 6px;
+  }
+  .button-row {
+    flex-direction: column;
+  }
+  .inner-tabs {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+/* Hide anchor buttons by default for Past Entries depends on your JS but here is generic styling if needed */
+#main-tabs[style*="none"] {
+  display: none !important;
+}

@@ -1,0 +1,120 @@
+/* Reset and layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #FFCCE1 0%, #D7EEFF 50%, #FAFFC7 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Diary container */
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  border: 3px solid #FFD6E7;
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #FFCCE1, #D7EEFF, #FAFFC7, #BAFFC9);
+  border-radius: 24px 24px 0 0;
+}
+
+/* Header */
+h1 {
+  color: #8A7BC8; /* Light pastel purple */
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+h2 {
+  color: #8A7BC8; /* Light pastel purple */
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #666666; /* Medium grey */
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+/* Card styling */
+.card {
+  background: #FFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.entry {
+  border-top: 1px solid #DDD;
+  padding-top: 1em;
+  margin-top: 1em;
+  text-align: left;
+  color: #555555; /* Slight grey for entry text */
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(135deg, #FFCCE1, #D7EEFF);
+  color: #333333; /* Dark grey instead of black */
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 16px;
+  padding: 12px;
+  width: 100%;
+  margin-top: 12px; /* Space between buttons and inputs */
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(216, 191, 216, 0.6);
+}
+
+/* Inputs and Textareas */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0; /* Increased margin for spacing between fields */
+  border-radius: 16px;
+  border: 2px solid #E6E6FA;
+  font-size: 14px;
+  background: #FAFAFA;
+  color: #555555; /* Grey text color */
+  transition: all 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #999999; /* Light grey placeholder text */
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #D8BFD8;
+  background: white;
+  box-shadow: 0 4px 12px rgba(216, 191, 216, 0.3);
+}

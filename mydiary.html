@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Diary</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="diary-container">
+    <div id="diary-page" class="page">
+      <div class="diary-header">
+        <!-- Back button (hidden by default) -->
+        <button id="back-btn" onclick="goBack()">← Back</button>
+
+        <div class="diary-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M4 2h14a2 2 0 0 1 2 2v16a2 
+              2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 
+              2 0 0 1 2-2zm0 2v16h14V4H4z"/>
+          </svg>
+        </div>
+        <h1>My Diary</h1>
+        <p class="subtitle">Write, reflect, and grow</p>
+      </div>
+
+      <div class="tabs" id="main-tabs">
+        <button onclick="showTab('write')">Write Today</button>
+        <button onclick="showTab('view'); loadAllDiaries()">Past Entries</button>
+        <!--changes by mustafa-->
+        <button onclick="sendAngryRequest()">Angry Mode</button>
+        <!-- changes by mustafa-->
+        <a href="logout.php"><button type="button">Logout</button></a>
+      </div>
+
+      <!-- Write Today -->
+      <div id="write" class="tab-content active">
+        <h2>Write Today's Diary</h2>
+        <p id="today-date"></p>
+        <textarea id="good" placeholder="Good thing you did today"></textarea>
+        <textarea id="good-reason" placeholder="Reason for the good thing"></textarea>
+        <textarea id="bad" placeholder="Bad thing you did today"></textarea>
+        <textarea id="bad-reason" placeholder="Reason for the bad thing"></textarea>
+        <textarea id="content" placeholder="Your diary content"></textarea>
+        <div class="button-row">
+          <button onclick="saveDiary()">Save Diary</button>
+          <button onclick="editDiary()">Edit Diary</button>
+        </div>
+        <div id="partnerBox">
+          <h3>Link Partner</h3>
+          <input type="text" id="partnerUsername" placeholder="Enter partner's username">
+          <button type="button" onclick="linkPartner()">Link Partner</button>
+          <p id="partnerMessage"></p>
+        </div>
+      </div>
+
+      <!-- Past Entries -->
+      <div id="view" class="tab-content">
+        <h2>Past Diary Entries</h2>
+        <div class="inner-tabs">
+          <button id="my-diary-tab" class="inner-tab active" onclick="showInnerTab('my-diary')">My Diary</button>
+          <button id="partners-diary-tab" class="inner-tab" onclick="showInnerTab('partners-diary')">Partner's Diary</button>
+        </div>
+        <div class="filters">
+          <input type="date" id="search-date" onchange="filterEntries()">
+          <input type="text" id="search-text" placeholder="Search entries..." onkeyup="filterEntries()">
+        </div>
+        <div id="my-diary-entries" class="inner-tab-content active">
+          <div id="entries-list"></div>
+        </div>
+        <div id="partners-diary-entries" class="inner-tab-content">
+          <div id="partners-entries-list"></div>
+        </div>
+      </div>
+
+      <!-- Angry Mode -->
+      <div id="angry" class="tab-content">
+        <h2>Partner's Diary (Angry Mode)</h2>
+        <div id="angry-result"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
